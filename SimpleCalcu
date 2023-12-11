@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+</head>
+<body>
+
+<?php
+$first_no = $_POST['no1'];
+$second_no = $_POST['no2'];
+$operator = $_POST['operator'];
+$result = '';
+
+if (is_numeric($first_no) && is_numeric($second_no)) {
+    switch ($operator) {
+        case "Add":
+            $result = $first_no + $second_no;
+            echo "Result is: $result";
+            break;
+
+        case "Subtract":
+            $result = $first_no - $second_no;
+            echo "Result is: $result";
+            break;
+
+        case "Multiply":
+            $result = $first_no * $second_no;
+            echo "Result is: $result";
+            break;
+
+        case "Divide":
+            $result = $first_no / $second_no;
+            echo "Result is: $result";
+            break;
+    }
+}
+?>
+
+<form method="post" action="">
+    <label for="no1">Enter Number 1:</label>
+    <input type="text" name="no1" id="no1" required>
+    <br>
+
+    <label for="no2">Enter Number 2:</label>
+    <input type="text" name="no2" id="no2" required>
+    <br>
+
+    <label for="operator">Select Operator:</label>
+    <select name="operator" id="operator" required>
+        <option value="Add">Add</option>
+        <option value="Subtract">Subtract</option>
+        <option value="Multiply">Multiply</option>
+        <option value="Divide">Divide</option>
+    </select>
+    <br>
+
+    <input type="submit" value="Calculate">
+    <br>
+</form>
+
+</body>
+</html>
